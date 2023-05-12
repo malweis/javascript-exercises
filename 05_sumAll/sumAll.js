@@ -1,15 +1,28 @@
 const sumAll = function(one, two) {
-    if(!isNaN(one) ){
-
+    if (typeof one !== 'number' || typeof two !== 'number') {
+        return "ERROR";
     }
+    if( one < 0 || two < 0){
+        return "ERROR";
+    }
+ 
     let sum = 0;
-    for (let i = one; i < two; i++) {
-        sum = sum + i;
-        
+    let mayor= 0;
+    let menor = 0 ;
+    if( one > two){
+        mayor = one;
+        menor = two;
+    }else{
+        mayor = two ;
+        menor = one;
     }
-    return sum + two
-
+    for (let i = menor; i < mayor; i++) {
+        sum = sum + i;
+    }
+    return sum + mayor;
 };
+
+
 
 // Do not edit below this line
 module.exports = sumAll;
